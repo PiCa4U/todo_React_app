@@ -83,3 +83,33 @@ export const Title = styled.h1`
   text-transform: lowercase;
   margin-bottom: 20px;
 `;
+
+export const Form = styled.form`
+  display: flex;
+  align-items: center;
+  width: calc(100% - 20px);
+  padding: 10px;
+  border-bottom: 1px solid #ededed;
+`;
+
+export const Input = styled.input`
+  flex: 1;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  outline: none;
+  font-style: italic;
+  color: #999;
+`;
+
+export const Button = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #bbb;
+  visibility: ${(props) => (props.disabled ? "hidden" : "visible")};
+  &:hover {
+    color: #888;
+  }
+`;

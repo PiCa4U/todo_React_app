@@ -1,36 +1,6 @@
 import React, { useState } from "react";
 import { useTodos } from "../context";
-import styled from "styled-components";
-
-const Form = styled.form`
-  display: flex;
-  align-items: center;
-  width: calc(100% - 20px);
-  padding: 10px;
-  border-bottom: 1px solid #ededed;
-`;
-
-const Input = styled.input`
-  flex: 1;
-  border: none;
-  font-size: 24px;
-  padding: 10px;
-  outline: none;
-  font-style: italic;
-  color: #999;
-`;
-
-const Button = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 24px;
-  color: #bbb;
-  visibility: ${(props) => (props.disabled ? "hidden" : "visible")};
-  &:hover {
-    color: #888;
-  }
-`;
+import {Button, Form, Input} from "../ui-components";
 
 const AddTodo: React.FC = () => {
   const [text, setText] = useState("");
