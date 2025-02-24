@@ -29,7 +29,7 @@ export const List = styled.ul`
   background: white;
 `;
 
-export const TodoItem = styled.li<{ completed: boolean }>`
+export const TodoItem = styled.li<{ completed: string | undefined }>`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -38,7 +38,7 @@ export const TodoItem = styled.li<{ completed: boolean }>`
   font-size: 18px;
   color: ${({ completed }) => (completed ? "#d9d9d9" : "#4d4d4d")};
   text-decoration: ${({ completed }) => (completed ? "line-through" : "none")};
-  opacity: ${({ completed }) => (completed ? 0.5 : 1)};
+  opacity: ${({ completed }) => (completed ? 0.9 : 1)};
 `;
 
 export const Checkbox = styled.input.attrs({ type: "checkbox" })`

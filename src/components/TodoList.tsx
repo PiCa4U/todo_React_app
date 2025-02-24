@@ -20,31 +20,34 @@ const TodoList: React.FC = () => {
 
   return (
     <div>
-      <List>
+      <List data-testid="todo-list">
         {filteredTodos.map(todo => (
-          <TodoItem key={todo.id} completed={todo.completed}>
+          <TodoItem key={todo.id} completed={todo.completed ? "true" : undefined} data-testid={`todo-item-${todo.id}`}>
             <Checkbox
               checked={todo.completed}
               onChange={() => dispatch({ type: "TOGGLE", id: todo.id })}
+              data-testid={`checkbox-${todo.id}`}
             />
-              {textFix(todo.text)}
+            {textFix(todo.text)}
           </TodoItem>
         ))}
       </List>
       <FilterButtons>
         <div>{unCompletedCount} items left</div>
         <div style={{display: "flex",gap: 10}}>
-          <button className={filter === "all" ? "active" : ""} onClick={() => setFilter("all")}>
+          <button className={filter === "all" ? "active" : ""} onClick={() => setFilter("all")} data-testid="filter-all">
             All
           </button>
-          <button className={filter === "active" ? "active" : ""} onClick={() => setFilter("active")}>
+          <button className={filter === "active" ? "active" : ""} onClick={() => setFilter("active")} data-testid="filter-active" >
             Active
           </button>
-          <button className={filter === "completed" ? "active" : ""} onClick={() => setFilter("completed")}>
+          <button className={filter === "completed" ? "active" : ""} onClick={() => setFilter("completed")} data-testid="filter-completed">
             Completed
           </button>
         </div>
-        <button onClick={() => dispatch({ type: "CLEAR_COMPLETED" })}>Clear completed</button>
+        <button onClick={() => dispatch({ type: "CLEAR_COMPLETED" })} data-testid="clear-completed">
+          Clear completed
+        </button>
       </FilterButtons>
     </div>
   );

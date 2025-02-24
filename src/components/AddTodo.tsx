@@ -51,8 +51,9 @@ const AddTodo: React.FC = () => {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="What needs to be done?"
+        data-testid="todo-input"
       />
-      <Button type="submit" disabled={!text.trim()}>
+      <Button type="submit" disabled={!text.trim()} data-testid="add-todo-button">
         +
       </Button>
     </Form>
